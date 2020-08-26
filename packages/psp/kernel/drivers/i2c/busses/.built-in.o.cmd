@@ -1,0 +1,1 @@
+cmd_drivers/i2c/busses/built-in.o :=  /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o drivers/i2c/busses/built-in.o drivers/i2c/busses/i2c-omap.o 

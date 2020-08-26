@@ -1,0 +1,1 @@
+cmd_drivers/media/rc/keymaps/built-in.o :=  rm -f drivers/media/rc/keymaps/built-in.o; /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ar rcs drivers/media/rc/keymaps/built-in.o

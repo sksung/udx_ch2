@@ -1,0 +1,1 @@
+cmd_drivers/media/video/built-in.o :=  /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o drivers/media/video/built-in.o drivers/media/video/davinci/built-in.o drivers/media/video/omap/built-in.o 

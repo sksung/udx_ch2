@@ -1,0 +1,1 @@
+cmd_arch/arm/boot/uImage := /bin/sh /home/sksung/work/udx/ch2/packages/psp/kernel/scripts/mkuboot.sh -A arm -O linux -T kernel -C none -a 0x80008000 -e 0x80008000 -n 'Linux-2.6.37' -d arch/arm/boot/zImage arch/arm/boot/uImage

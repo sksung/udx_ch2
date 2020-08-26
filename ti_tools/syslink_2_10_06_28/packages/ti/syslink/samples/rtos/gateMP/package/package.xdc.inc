@@ -1,0 +1,11 @@
+package.xdc
+package/ti.syslink.samples.rtos.gateMP.sch
+package/.vers_g180
+package/.vers_r170
+package/.vers_b150
+package/.xdc-y25
+package/ti_syslink_samples_rtos_gateMP.java
+package/ti_syslink_samples_rtos_gateMP.class
+package/package_ti.syslink.samples.rtos.gateMP.c
+package/package.defs.h
+package/ti.syslink.samples.rtos.gateMP.ccs

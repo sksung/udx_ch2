@@ -1,0 +1,13 @@
+package.xdc
+Platform.xdc
+Platform.xs
+package/ti.syslink.samples.rtos.platforms.ti814x.videom3.sch
+package/.vers_g180
+package/.vers_r170
+package/.vers_b150
+package/.xdc-y25
+package/ti_syslink_samples_rtos_platforms_ti814x_videom3.java
+package/ti_syslink_samples_rtos_platforms_ti814x_videom3.class
+package/package_ti.syslink.samples.rtos.platforms.ti814x.videom3.c
+package/package.defs.h
+package/ti.syslink.samples.rtos.platforms.ti814x.videom3.ccs

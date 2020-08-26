@@ -1,0 +1,5 @@
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk_dt/build/mcfw/src_bios6/obj/ti810x-evm/m3vpss/debug/utils_dma_m3vpss_simcop_cfg.oem3: utils/src/utils_dma_m3vpss_simcop_cfg.c
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk_dt/build/mcfw/src_bios6/obj/ti810x-evm/m3vpss/debug/utils_dma_m3vpss_simcop_cfg.oem3: /home/sksung/work/udx/ch2/packages/../ti_tools/edma3_lld_02_11_02_04/packages/ti/sdo/edma3/drv/edma3_drv.h
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk_dt/build/mcfw/src_bios6/obj/ti810x-evm/m3vpss/debug/utils_dma_m3vpss_simcop_cfg.oem3: /home/sksung/work/udx/ch2/packages/../ti_tools/cgt470_4_9_5/include/stdint.h
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk_dt/build/mcfw/src_bios6/obj/ti810x-evm/m3vpss/debug/utils_dma_m3vpss_simcop_cfg.oem3: /home/sksung/work/udx/ch2/packages/../ti_tools/edma3_lld_02_11_02_04/packages/ti/sdo/edma3/rm/edma3_rm.h
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk_dt/build/mcfw/src_bios6/obj/ti810x-evm/m3vpss/debug/utils_dma_m3vpss_simcop_cfg.oem3: /home/sksung/work/udx/ch2/packages/../ti_tools/edma3_lld_02_11_02_04/packages/ti/sdo/edma3/rm/edma3_common.h

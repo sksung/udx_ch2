@@ -1,0 +1,12 @@
+package.xdc
+package.xs
+package/ipnc_rdk_configuro.sch
+package/.vers_g180
+package/.vers_r170
+package/.vers_b150
+package/.xdc-y25
+package/ipnc_rdk_configuro.java
+package/ipnc_rdk_configuro.class
+package/package_ipnc_rdk_configuro.c
+package/package.defs.h
+package/ipnc_rdk_configuro.ccs

@@ -1,0 +1,1 @@
+cmd_net/sunrpc/built-in.o :=  /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o net/sunrpc/built-in.o net/sunrpc/sunrpc.o net/sunrpc/auth_gss/built-in.o 

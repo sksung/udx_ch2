@@ -1,0 +1,45 @@
+#------------------------------------------------------------------------------
+# Makefile for dvr board shared image library
+# 10.02.02 by phoong
+#------------------------------------------------------------------------------
+
+include $(MCFW_ROOT_PATH)/makerules/common_header_a8.mk
+INCLUDE_DIR = -I.
+LIB_DIR = ../../../lib
+SRC_DIR = ../../
+
+.SUFFIXES:
+
+
+CFLAGS =
+
+LIB=libimg_db_gui.so
+
+DEL=rm -f
+
+#------------------------------------------------------------------------------
+OBJS = img_db.o
+#------------------------------------------------------------------------------
+
+%.o: %.c
+	$(CC) -fPIC -c $(CFLAGS) $< -o $@
+
+.PHONY:	all \
+		clean
+
+all: mkimg $(LIB)
+	-@mv $(LIB) $(LIB_DIR)
+	-@mv img_db.h $(GUI_PATH)/inc/ucx_db_img.h
+	-@$(DEL) *.o *.h
+	@echo -e "\n--- make image db done! (`date +'%H:%M:%S'`)---\n"
+
+$(LIB): $(OBJS)
+	@echo --- make $(LIB) ---
+	$(LD) -shared -o $@ $^
+
+mkimg:
+	-@./bmp2db.out ./bmp .
+
+clean:
+	-$(DEL) *.o
+#	-$(DEL) $(LIB_DIR)/$(LIB)

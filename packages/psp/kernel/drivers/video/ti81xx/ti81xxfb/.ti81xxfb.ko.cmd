@@ -1,0 +1,1 @@
+cmd_drivers/video/ti81xx/ti81xxfb/ti81xxfb.ko := /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL -r  -T /home/sksung/work/udx/ch2/packages/psp/kernel/scripts/module-common.lds --build-id  -o drivers/video/ti81xx/ti81xxfb/ti81xxfb.ko drivers/video/ti81xx/ti81xxfb/ti81xxfb.o drivers/video/ti81xx/ti81xxfb/ti81xxfb.mod.o

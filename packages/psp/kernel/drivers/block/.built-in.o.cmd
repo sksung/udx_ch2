@@ -1,0 +1,1 @@
+cmd_drivers/block/built-in.o :=  /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o drivers/block/built-in.o drivers/block/brd.o drivers/block/loop.o 

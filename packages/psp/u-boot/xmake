@@ -1,0 +1,40 @@
+
+target_dir="../../../tftphome"
+cpu_num="8"
+# dm8107 or dm385
+cpu="dm8107"
+
+if [ -z $1 ]; then
+	echo -e "\n <usage>"
+	echo    " ./xmake m [nand,sd,uart,eth]"
+	echo -e " ./xmake [nand, sd]\n"
+	exit 0
+fi
+
+echo -e "\n<$cpu>"
+echo -e "------------------- start -----"
+
+if [ $1 == "m" ]; then
+  make CROSS_COMPILE=arm-none-linux-gnueabi- ARCH=arm distclean
+
+  make CROSS_COMPILE=arm-none-linux-gnueabi- ARCH=arm ubx_min_$2
+  make -j$cpu_num CROSS_COMPILE=arm-none-linux-gnueabi- ARCH=arm u-boot.ti
+  if [ $2 == "sd" ]; then
+	mv u-boot.min.$2 $target_dir/MLO
+  else
+	mv u-boot.min.$2 $target_dir/u-boot_ubx.min.$2
+#	cp $target_dir/u-boot_ubx.min.$2 /home/phoong/work/netra/dvr/bin
+  fi
+
+  echo -e "\n----------------- u-boot.min.$2 end -----\n"
+fi
+
+if [ $1 == "nand" -o $1 == "sd" ]; then
+  make CROSS_COMPILE=arm-none-linux-gnueabi- ARCH=arm distclean
+
+  make CROSS_COMPILE=arm-none-linux-gnueabi- ARCH=arm ubx_config_$1
+  make -j$cpu_num CROSS_COMPILE=arm-none-linux-gnueabi- ARCH=arm u-boot.ti
+  mv u-boot.bin $target_dir/u-boot_ubx.bin
+#  cp $target_dir/u-boot_ubx.bin /home/phoong/work/netra/dvr/bin
+  echo -e "\n----------------- u-boot.bin for $1 end -----\n"
+fi

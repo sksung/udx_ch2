@@ -1,0 +1,11 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+[Project Settings]
+ProjectName="ti.syslink.samples.rtos.ti81xx.frameq_multiQ_ti81xx"
+ProjectType=External
+CPUFamily=TMS320C67XX
+Tool="CustomBuilder"
+Config="Package"
+[Source Files]
+Source="../FrameQ_ti81xx_dsp.c"
+Source="../FrameQ_ti81xx_videom3.c"
+Source="../FrameQ_ti81xx_vpssm3.c"

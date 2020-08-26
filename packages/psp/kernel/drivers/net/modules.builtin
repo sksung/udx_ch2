@@ -1,0 +1,11 @@
+kernel/drivers/net/mii.ko
+kernel/drivers/net/davinci_mdio.ko
+kernel/drivers/net/davinci_cpdma.ko
+kernel/drivers/net/ti_cpsw.ko
+kernel/drivers/net/phy/libphy.ko
+kernel/drivers/net/usb/asix.ko
+kernel/drivers/net/usb/cdc_ether.ko
+kernel/drivers/net/usb/cdc_subset.ko
+kernel/drivers/net/usb/usbnet.ko
+kernel/drivers/net/usb/cdc_ncm.ko
+kernel/drivers/net/usb/ax88179_178a.ko

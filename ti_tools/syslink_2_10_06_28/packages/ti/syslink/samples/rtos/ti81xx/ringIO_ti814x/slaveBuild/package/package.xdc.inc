@@ -1,0 +1,11 @@
+package.xdc
+package/ti.syslink.samples.rtos.ti81xx.ringIO_ti814x.slaveBuild.sch
+package/.vers_g180
+package/.vers_r170
+package/.vers_b150
+package/.xdc-y25
+package/ti_syslink_samples_rtos_ti81xx_ringIO_ti814x_slaveBuild.java
+package/ti_syslink_samples_rtos_ti81xx_ringIO_ti814x_slaveBuild.class
+package/package_ti.syslink.samples.rtos.ti81xx.ringIO_ti814x.slaveBuild.c
+package/package.defs.h
+package/ti.syslink.samples.rtos.ti81xx.ringIO_ti814x.slaveBuild.ccs

@@ -1,0 +1,11 @@
+package.xdc
+package/ti.syslink.samples.rtos.listMP.sch
+package/.vers_g180
+package/.vers_r170
+package/.vers_b150
+package/.xdc-y25
+package/ti_syslink_samples_rtos_listMP.java
+package/ti_syslink_samples_rtos_listMP.class
+package/package_ti.syslink.samples.rtos.listMP.c
+package/package.defs.h
+package/ti.syslink.samples.rtos.listMP.ccs

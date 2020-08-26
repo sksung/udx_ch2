@@ -1,0 +1,12 @@
+NotifyApp.c
+package.xdc
+package.bld
+omap3530/Notify_omap3530_dsp.cfg
+ti81xx/Notify_ti81xx_videom3.cfg
+ti81xx/Notify_ti81xx_vpssm3.cfg
+ti81xx/Notify_ti81xx_dsp.cfg
+package/package.bld.xml
+package/package.ext.xml
+package/package.rel.dot
+package/build.cfg
+package/package.xdc.inc

@@ -1,0 +1,10 @@
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk/build/mcfw/src_bios6/obj/ti810x-evm/m3video/debug/alg_control.oem3: links_m3video/codec_utils/src/alg_control.c
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk/build/mcfw/src_bios6/obj/ti810x-evm/m3video/debug/alg_control.oem3: /home/sksung/work/udx/ch2/packages/../ti_tools/xdctools_3_23_03_53/packages/xdc/std.h
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk/build/mcfw/src_bios6/obj/ti810x-evm/m3video/debug/alg_control.oem3: /home/sksung/work/udx/ch2/packages/../ti_tools/cgt470_4_9_5/include/stdarg.h
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk/build/mcfw/src_bios6/obj/ti810x-evm/m3video/debug/alg_control.oem3: /home/sksung/work/udx/ch2/packages/../ti_tools/cgt470_4_9_5/include/stddef.h
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk/build/mcfw/src_bios6/obj/ti810x-evm/m3video/debug/alg_control.oem3: /home/sksung/work/udx/ch2/packages/../ti_tools/xdctools_3_23_03_53/packages/ti/targets/arm/elf/std.h
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk/build/mcfw/src_bios6/obj/ti810x-evm/m3video/debug/alg_control.oem3: /home/sksung/work/udx/ch2/packages/../ti_tools/xdctools_3_23_03_53/packages/ti/targets/arm/elf/M3.h
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk/build/mcfw/src_bios6/obj/ti810x-evm/m3video/debug/alg_control.oem3: /home/sksung/work/udx/ch2/packages/../ti_tools/xdctools_3_23_03_53/packages/ti/targets/std.h
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk/build/mcfw/src_bios6/obj/ti810x-evm/m3video/debug/alg_control.oem3: /home/sksung/work/udx/ch2/packages/../ti_tools/cgt470_4_9_5/include/stdint.h
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk/build/mcfw/src_bios6/obj/ti810x-evm/m3video/debug/alg_control.oem3: /home/sksung/work/udx/ch2/packages/../ti_tools/framework_components_3_22_02_08/packages/ti/sdo/fc/utils/api/alg.h
+/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk/build/mcfw/src_bios6/obj/ti810x-evm/m3video/debug/alg_control.oem3: /home/sksung/work/udx/ch2/packages/../ti_tools/xdais_7_22_00_03/packages/ti/xdais/ialg.h

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.syslink.samples.rtos.ti81xx.frameq_ti814x.slaveBuild" version="1, 0, 0, 0" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3_pem3.c"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3_pem3.c"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp_pe674.c"/>
+        <srcFile name="FrameQApp.c"/>
+    </sources>
+    <configscripts>
+        <srcFile name="FrameQ_ti814x_videom3.cfg"/>
+        <srcFile name="FrameQ_ti814x_vpssm3.cfg"/>
+        <srcFile name="FrameQ_ti814x_dsp.cfg"/>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3_pem3.mak" src="package.bld"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3_pem3.oem3.dep" src="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3_pem3.c"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3_pem3.dep" src="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3_pem3.cfg"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3_pem3.mak" src="package.bld"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3_pem3.oem3.dep" src="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3_pem3.c"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3_pem3.dep" src="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3_pem3.cfg"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp_pe674.mak" src="package.bld"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp_pe674.oe674.dep" src="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp_pe674.c"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp_pe674.dep" src="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp_pe674.cfg"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3.xem3.mak" src="package.bld"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3/FrameQApp.oem3.dep" src="FrameQApp.c"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3.xem3.mak" src="package.bld"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3/FrameQApp.oem3.dep" src="FrameQApp.c"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp.xe674.mak" src="package.bld"/>
+        <srcFile name="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp/FrameQApp.oe674.dep" src="FrameQApp.c"/>
+        <srcFile name="package/rel/ti.syslink.samples.rtos.ti81xx.frameq_ti814x.slaveBuild,src.tar.dep" src="package/rel/ti.syslink.samples.rtos.ti81xx.frameq_ti814x.slaveBuild,src.xdc.inc"/>
+        <srcFile name="package/rel/ti_syslink_samples_rtos_ti81xx_frameq_ti814x_slaveBuild.tar.dep" src="package/rel/ti_syslink_samples_rtos_ti81xx_frameq_ti814x_slaveBuild.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.arm.elf.M3"
+            version="ti.targets.arm.elf.M3{1,0,4.9,5"
+            platform="ti.platforms.simDM8168"
+            isa="v7M"
+            suffix="em3"
+            rootDir="/home/sksung/work/udx/ch2/packages/../ti_tools/cgt470_4_9_5"
+            os="undefined"
+            rts="ti.targets.arm.rtsarm">
+            <model endian="little"
+                codeModel="thumb2"
+                dataModel="undefined"/>
+        </target>
+        <target name="ti.targets.elf.C674"
+            version="ti.targets.elf.C674{1,0,7.3,5"
+            platform="ti.platforms.evmDA830"
+            isa="674"
+            suffix="e674"
+            rootDir="/home/sksung/work/udx/ch2/packages/../ti_tools/cgt6x_7_3_5"
+            os="undefined"
+            rts="ti.targets.rts6000">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    <configuration name="ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3"
+        pname="ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3.pem3"
+        target="ti.targets.arm.elf.M3"
+        platform="ti.syslink.samples.rtos.platforms.ti814x.videom3"
+        profile="debug"
+        isPartial="false"
+        xCfgScript="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3_pem3.cfg"
+        xCfgPrefix="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3_pem3"
+        cfgScript="FrameQ_ti814x_videom3.cfg"
+        />
+    <configuration name="ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3"
+        pname="ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3.pem3"
+        target="ti.targets.arm.elf.M3"
+        platform="ti.syslink.samples.rtos.platforms.ti814x.vpssm3"
+        profile="debug"
+        isPartial="false"
+        xCfgScript="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3_pem3.cfg"
+        xCfgPrefix="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3_pem3"
+        cfgScript="FrameQ_ti814x_vpssm3.cfg"
+        />
+    <configuration name="ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp"
+        pname="ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp.pe674"
+        target="ti.targets.elf.C674"
+        platform="ti.syslink.samples.rtos.platforms.ti814x.dsp"
+        profile="debug"
+        isPartial="false"
+        xCfgScript="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp_pe674.cfg"
+        xCfgPrefix="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp_pe674"
+        cfgScript="FrameQ_ti814x_dsp.cfg"
+        />
+    </configurations>
+    <executables>
+    <executable name="ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3"
+        pname="ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3.xem3"
+        target="ti.targets.arm.elf.M3"
+        platform="ti.syslink.samples.rtos.platforms.ti814x.videom3"
+        profile="debug"
+        xCfgScript="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3_pem3.cfg"
+        xCfgPrefix="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3_pem3"
+        cfgScript="FrameQ_ti814x_videom3.cfg"
+        />
+    <executable name="ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3"
+        pname="ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3.xem3"
+        target="ti.targets.arm.elf.M3"
+        platform="ti.syslink.samples.rtos.platforms.ti814x.vpssm3"
+        profile="debug"
+        xCfgScript="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3_pem3.cfg"
+        xCfgPrefix="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3_pem3"
+        cfgScript="FrameQ_ti814x_vpssm3.cfg"
+        />
+    <executable name="ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp"
+        pname="ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp.xe674"
+        target="ti.targets.elf.C674"
+        platform="ti.syslink.samples.rtos.platforms.ti814x.dsp"
+        profile="debug"
+        xCfgScript="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp_pe674.cfg"
+        xCfgPrefix="package/cfg/ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp_pe674"
+        cfgScript="FrameQ_ti814x_dsp.cfg"
+        />
+    </executables>
+    <tests>
+    <test exeName="ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3.xem3"
+        args=""
+        groupName="regress"
+        refOutput="golden/frameq_ti814x_videom3.k"
+        refExitCode="0"
+        execArgs="-t%2060"
+        />
+    <test exeName="ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3.xem3"
+        args=""
+        groupName="ti_syslink_samples_rtos_platforms_ti814x_videom3/debug/frameq_ti814x_videom3.xem3"
+        refOutput="undefined"
+        refExitCode="0"
+        execArgs="-t%2060"
+        />
+    <test exeName="ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3.xem3"
+        args=""
+        groupName="regress"
+        refOutput="golden/frameq_ti814x_vpssm3.k"
+        refExitCode="0"
+        execArgs="-t%2060"
+        />
+    <test exeName="ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3.xem3"
+        args=""
+        groupName="ti_syslink_samples_rtos_platforms_ti814x_vpssm3/debug/frameq_ti814x_vpssm3.xem3"
+        refOutput="undefined"
+        refExitCode="0"
+        execArgs="-t%2060"
+        />
+    <test exeName="ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp.xe674"
+        args=""
+        groupName="regress"
+        refOutput="golden/frameq_ti814x_dsp.k"
+        refExitCode="0"
+        execArgs="-t%2060"
+        />
+    <test exeName="ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp.xe674"
+        args=""
+        groupName="ti_syslink_samples_rtos_platforms_ti814x_dsp/debug/frameq_ti814x_dsp.xe674"
+        refOutput="undefined"
+        refExitCode="0"
+        execArgs="-t%2060"
+        />
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti.syslink.samples.rtos.ti81xx.frameq_ti814x.slaveBuild,src"
+        pname="ti.syslink.samples.rtos.ti81xx.frameq_ti814x.slaveBuild,src.tar"
+        label="undefined"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/package.ext.xml"/>
+        <file name="package/package.rel.dot"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+    </release>
+    <release name="ti_syslink_samples_rtos_ti81xx_frameq_ti814x_slaveBuild"
+        pname="ti_syslink_samples_rtos_ti81xx_frameq_ti814x_slaveBuild.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/package.ext.xml"/>
+        <file name="package/package.rel.dot"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

@@ -1,0 +1,2 @@
+kernel/drivers/video/ti81xx/vpss/vpss.ko
+kernel/drivers/video/ti81xx/ti81xxfb/ti81xxfb.ko

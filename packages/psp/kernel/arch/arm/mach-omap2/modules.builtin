@@ -1,0 +1,2 @@
+kernel/arch/arm/mach-omap2/mailbox_mach.ko
+kernel/arch/arm/mach-omap2/iommu2.ko

@@ -1,0 +1,13 @@
+package.xdc
+Platform.xdc
+Platform.xs
+package/ti.syslink.samples.rtos.platforms.evm6472.core2.sch
+package/.vers_g180
+package/.vers_r170
+package/.vers_b150
+package/.xdc-y25
+package/ti_syslink_samples_rtos_platforms_evm6472_core2.java
+package/ti_syslink_samples_rtos_platforms_evm6472_core2.class
+package/package_ti.syslink.samples.rtos.platforms.evm6472.core2.c
+package/package.defs.h
+package/ti.syslink.samples.rtos.platforms.evm6472.core2.ccs
