@@ -29,13 +29,16 @@ app:
 app_clean:
 	make -fMAKEFILE.MK -C$(MCFW_ROOT_PATH)/mcfw/src_linux clean
 	make -fMAKEFILE.MK -C$(APP_DIR) clean
+	
 rfs_unzip:
 	sudo tar zxvf $(TARGET_ROOT)/rfs.tar.gz -C $(TARGET_ROOT)/
+	
 rfs_clean:
 	sudo rm -rf $(TARGET_ROOT)/rfs
 	rm -rf $(TARGET_FS)/opt/*
 
 ubxapp: app fsupdate
+
 bigfile_unzip:
 ifneq (exist, $(shell [ -e $(linuxdevkit_PATH)/usr/lib/libc.a ] && echo exist))
 	echo "extracting libc.tar.gz..."
@@ -302,22 +305,22 @@ ifeq ($(APP_BUILD_CFG), release)
 endif
 
 fsupdate:
-	-mkdir -p $(EXEC_DIR)
-	-mkdir -p $(EXEC_DIR)/bin	
+	sudo /bin/mkdir -p $(EXEC_DIR)
+	sudo /bin/mkdir -p $(EXEC_DIR)/bin	
 	-mkdir -p $(TFTP_HOME)/release
 	chmod -Rf 755 $(TARGET_MCFW_DIR)/
 #cp $(APP_DIR)/lib/libfont_db.so $(TARGET_FS)/usr/lib/.
-	cp -Rp $(TARGET_MCFW_DIR)/* $(EXEC_DIR)/.
-	cp -f $(TARGET_MCFW_DIR)/wis-streamer $(EXEC_DIR)/bin/.
-	cp -f $(IWSCAN_DIR)/iw_scan.out $(EXEC_DIR)/bin/.	
-	cp -f $(TARGET_MCFW_DIR)/scripts/start_app.sh $(TARGET_FS)/opt/.
+	sudo cp -Rp $(TARGET_MCFW_DIR)/* $(EXEC_DIR)/.
+	sudo cp -f $(TARGET_MCFW_DIR)/wis-streamer $(EXEC_DIR)/bin/.
+	sudo cp -f $(IWSCAN_DIR)/iw_scan.out $(EXEC_DIR)/bin/.	
+	sudo cp -f $(TARGET_MCFW_DIR)/scripts/start_app.sh $(TARGET_FS)/opt/.
 	chmod 755 $(EXEC_DIR)/*.sh
 	chmod 755 $(EXEC_DIR)/scripts/*.sh
 ifeq ($(USE_WIFI),YES)
-	cp $(APP_DIR)/module/wifi/8188eu_driver/8188eu.ko $(TARGET_FS)/lib/modules/.
-	cp $(APP_DIR)/module/wifi/8188cu_driver/8192cu.ko $(TARGET_FS)/lib/modules/.
-	cp $(APP_DIR)/module/wifi/8821au_driver/8821au.ko $(TARGET_FS)/lib/modules/.
-#	cp $(APP_DIR)/module/wifi/8192eu_driver/8192eu.ko $(TARGET_FS)/lib/modules/.
+	sudo cp $(APP_DIR)/module/wifi/8188eu_driver/8188eu.ko $(TARGET_FS)/lib/modules/.
+	sudo cp $(APP_DIR)/module/wifi/8188cu_driver/8192cu.ko $(TARGET_FS)/lib/modules/.
+	sudo cp $(APP_DIR)/module/wifi/8821au_driver/8821au.ko $(TARGET_FS)/lib/modules/.
+#	sudo cp $(APP_DIR)/module/wifi/8192eu_driver/8192eu.ko $(TARGET_FS)/lib/modules/.
 endif
 	@echo "# -------- Build Completed for $(DVR_RDK_BOARD_TYPE) -- ( `date +'%H:%M:%S'`) -------\n"
 
@@ -325,7 +328,7 @@ endif
 
 sys: uboot lsp wifi syslink iss hdvpss mcfw
 
-sys_clean: uboot_clean lsp_clean wifi_clean syslink_clean iss_clean hdvpss_clean mcfw_clean
+sys_clean: uboot_clean lsp_clean rfs_clean wifi_clean syslink_clean iss_clean hdvpss_clean mcfw_clean
 	rm -rf $(MCFW_ROOT_PATH)/build
 	@echo -e "\n--- make sysclean done! (`date +'%H:%M:%S'`)---\n"
 
