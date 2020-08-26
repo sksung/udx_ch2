@@ -1,1 +1,0 @@
-cmd_sound/pcmcia/built-in.o :=  /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o sound/pcmcia/built-in.o sound/pcmcia/vx/built-in.o sound/pcmcia/pdaudiocf/built-in.o 

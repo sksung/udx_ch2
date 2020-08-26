@@ -1,1 +1,0 @@
-cmd_drivers/scsi/scsi_wait_scan.ko := /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL -r  -T /home/sksung/work/udx/ch2/packages/psp/kernel/scripts/module-common.lds --build-id  -o drivers/scsi/scsi_wait_scan.ko drivers/scsi/scsi_wait_scan.o drivers/scsi/scsi_wait_scan.mod.o

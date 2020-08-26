@@ -1,2 +1,0 @@
-/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk/build/ti/psp/iss/obj/ti810x-evm/m3/debug/jpeg_tables.oem3: hal/iss/simcop/common/jpeg_tables.c
-/home/sksung/work/udx/ch2/packages/../packages/mcfw_sdk/build/ti/psp/iss/obj/ti810x-evm/m3/debug/jpeg_tables.oem3: hal/iss/simcop/common/jpeg_tables.h

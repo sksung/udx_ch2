@@ -1,1 +1,0 @@
-cmd_drivers/usb/musb/built-in.o :=  /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o drivers/usb/musb/built-in.o drivers/usb/musb/musb_hdrc.o drivers/usb/musb/ti81xx.o drivers/usb/musb/cppi41dma.o 

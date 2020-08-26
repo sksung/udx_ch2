@@ -1,1 +1,0 @@
-cmd_drivers/usb/musb/musb_hdrc.o := /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o drivers/usb/musb/musb_hdrc.o drivers/usb/musb/musb_core.o drivers/usb/musb/musb_virthub.o drivers/usb/musb/musb_host.o drivers/usb/musb/musb_debugfs.o 

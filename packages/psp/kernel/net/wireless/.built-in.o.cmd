@@ -1,1 +1,0 @@
-cmd_net/wireless/built-in.o :=  /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o net/wireless/built-in.o net/wireless/cfg80211.o net/wireless/lib80211.o net/wireless/wext-core.o net/wireless/wext-proc.o net/wireless/wext-spy.o net/wireless/wext-priv.o 

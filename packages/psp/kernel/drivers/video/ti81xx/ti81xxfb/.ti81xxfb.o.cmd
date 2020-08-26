@@ -1,1 +1,0 @@
-cmd_drivers/video/ti81xx/ti81xxfb/ti81xxfb.o := /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o drivers/video/ti81xx/ti81xxfb/ti81xxfb.o drivers/video/ti81xx/ti81xxfb/ti81xxfb_main.o drivers/video/ti81xx/ti81xxfb/ti81xxfb_sysfs.o drivers/video/ti81xx/ti81xxfb/ti81xxfb_ioctl.o 

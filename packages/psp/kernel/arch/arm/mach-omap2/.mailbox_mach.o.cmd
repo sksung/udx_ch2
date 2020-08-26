@@ -1,1 +1,0 @@
-cmd_arch/arm/mach-omap2/mailbox_mach.o := /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o arch/arm/mach-omap2/mailbox_mach.o arch/arm/mach-omap2/mailbox.o 

@@ -1,1 +1,0 @@
-cmd_net/dns_resolver/built-in.o :=  /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o net/dns_resolver/built-in.o net/dns_resolver/dns_resolver.o 

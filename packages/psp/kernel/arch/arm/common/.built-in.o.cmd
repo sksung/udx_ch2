@@ -1,1 +1,0 @@
-cmd_arch/arm/common/built-in.o :=  /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o arch/arm/common/built-in.o arch/arm/common/clkdev.o arch/arm/common/edma.o 

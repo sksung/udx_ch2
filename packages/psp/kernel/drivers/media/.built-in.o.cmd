@@ -1,1 +1,0 @@
-cmd_drivers/media/built-in.o :=  /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o drivers/media/built-in.o drivers/media/common/built-in.o drivers/media/rc/built-in.o drivers/media/video/built-in.o 

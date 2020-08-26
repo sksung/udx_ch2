@@ -1,1 +1,0 @@
-cmd_drivers/usb/musb/cppi41dma.o := /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o drivers/usb/musb/cppi41dma.o drivers/usb/musb/cppi41.o drivers/usb/musb/cppi41_dma.o 

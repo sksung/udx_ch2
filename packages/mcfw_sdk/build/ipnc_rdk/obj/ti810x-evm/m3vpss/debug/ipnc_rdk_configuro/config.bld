@@ -1,6 +1,0 @@
-/* THIS IS A GENERATED FILE -- DO NOT EDIT */
-/* configuro was passed a config.bld file */
-xdc.includeFile("/home/sksung/work/udx/ch2/packages/mcfw_sdk/mcfw/src_bios6/cfg/ti810x/config_ucx_512M.bld");
-/* configuro was passed the target's name explicitly */
-var target  = xdc.module('ti.targets.arm.elf.M3');
-Build.targets = [target];

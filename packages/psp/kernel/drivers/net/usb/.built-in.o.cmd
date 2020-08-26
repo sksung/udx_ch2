@@ -1,1 +1,0 @@
-cmd_drivers/net/usb/built-in.o :=  /home/sksung/work/udx/ch2/packages/../ti_tools/linux_devkit/bin/arm-arago-linux-gnueabi-ld -EL    -r -o drivers/net/usb/built-in.o drivers/net/usb/asix.o drivers/net/usb/cdc_ether.o drivers/net/usb/cdc_subset.o drivers/net/usb/usbnet.o drivers/net/usb/cdc_ncm.o drivers/net/usb/ax88179_178a.o 
