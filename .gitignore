@@ -13,6 +13,7 @@ packages/build/d16/kermod/syslink.ko
 packages/build/u-boot_hd2.bin
 packages/build/u-boot_hd2.min.nand
 packages/build/uImage_hd2
+packages/build/rfs_hd2.ubifs
 packages/dev_app/d16_app/control_sock/MAKEFILE.DEPEND
 packages/dev_app/d16_app/src/MAKEFILE.DEPEND
 packages/dev_app/demo/MAKEFILE.DEPEND

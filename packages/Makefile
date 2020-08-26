@@ -293,8 +293,8 @@ db_snd:
 ##### FILESYS MAKE #####
 
 ubifs:
-	$(TARGET_ROOT)/mkfs.ubifs -r $(TARGET_FS) -F -o ubifs.img -m 2KiB -e 124KiB -c 330
-	$(TARGET_ROOT)/ubinize -o $(TFTP_HOME)/rfs_$(SYSTEM_CFG).ubifs -m 2048 -p 128KiB -s 512 -O 2048 $(TARGET_ROOT)/ubinize.cfg
+	sudo $(TARGET_ROOT)/mkfs.ubifs -r $(TARGET_FS) -F -o ubifs.img -m 2KiB -e 124KiB -c 330
+	sudo $(TARGET_ROOT)/ubinize -o $(TFTP_HOME)/rfs_$(SYSTEM_CFG).ubifs -m 2048 -p 128KiB -s 512 -O 2048 $(TARGET_ROOT)/ubinize.cfg
 	rm -rf ubifs.img
 
 scrip:
