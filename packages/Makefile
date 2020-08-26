@@ -1,7 +1,7 @@
 # Copyright (c) Texas Instruments Inc 2012
 DIR=default
 FILE=default
-CPU_NUM=1
+CPU_NUM=16
 
 include Rules.make
 include $(ROOTDIR)/makerules/build_config.mk
@@ -29,9 +29,18 @@ app:
 app_clean:
 	make -fMAKEFILE.MK -C$(MCFW_ROOT_PATH)/mcfw/src_linux clean
 	make -fMAKEFILE.MK -C$(APP_DIR) clean
+rfs_unzip:
+	sudo tar zxvf $(TARGET_ROOT)/rfs.tar.gz -C $(TARGET_ROOT)/
+rfs_clean:
+	sudo rm -rf $(TARGET_ROOT)/rfs
 	rm -rf $(TARGET_FS)/opt/*
 
 ubxapp: app fsupdate
+bigfile_unzip:
+ifneq (exist, $(shell [ -e $(linuxdevkit_PATH)/usr/lib/libc.a ] && echo exist))
+	echo "extracting libc.tar.gz..."
+	tar zxvf $(linuxdevkit_PATH)/usr/lib/libc.tar.gz -C $(linuxdevkit_PATH)/usr/lib/
+endif
 
 ubxapp_clean: app_clean
 ubxapp_all: app_clean iwscan_clean db_img iwscan ubxapp
@@ -320,7 +329,7 @@ sys_clean: uboot_clean lsp_clean wifi_clean syslink_clean iss_clean hdvpss_clean
 	rm -rf $(MCFW_ROOT_PATH)/build
 	@echo -e "\n--- make sysclean done! (`date +'%H:%M:%S'`)---\n"
 
-sys_all: sys_clean sys
+sys_all: sys_clean rfs_unzip bigfile_unzip sys fsupdate
 	@echo "--------------------------------------------------------------"
 	@echo "******** Build completed for following configuration *********"
 	@echo "--------------------------------------------------------------"
