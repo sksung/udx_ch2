@@ -306,7 +306,7 @@ fsupdate:
 	-mkdir -p $(EXEC_DIR)/bin	
 	-mkdir -p $(TFTP_HOME)/release
 	chmod -Rf 755 $(TARGET_MCFW_DIR)/
-	cp $(APP_DIR)/lib/libfont_db.so $(TARGET_FS)/usr/lib/.
+#cp $(APP_DIR)/lib/libfont_db.so $(TARGET_FS)/usr/lib/.
 	cp -Rp $(TARGET_MCFW_DIR)/* $(EXEC_DIR)/.
 	cp -f $(TARGET_MCFW_DIR)/wis-streamer $(EXEC_DIR)/bin/.
 	cp -f $(IWSCAN_DIR)/iw_scan.out $(EXEC_DIR)/bin/.	
