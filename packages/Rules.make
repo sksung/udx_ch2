@@ -31,12 +31,13 @@ PLATFORM := ti810x-evm
 SYSTEM_CFG := hd2
 
 #--- app source dir
-BRANCH_DIR := d16
+#BRANCH_DIR := d16
 #BRANCH_DIR := bike
 #BRANCH_DIR := bikefms
 #BRANCH_DIR := cwx
 #BRANCH_DIR := train
 #BRANCH_DIR := pluto
+BRANCH_DIR := uisys
 
 #--- Filesystem Mode
 FS_CFG := ubifs
