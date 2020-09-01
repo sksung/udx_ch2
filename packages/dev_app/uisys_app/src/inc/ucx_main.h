@@ -47,7 +47,6 @@
 #define DETECT_EMG_GIO	(0)
 
 //######### VENDOR SETTING ########//
-#define ATVS_MODE	(1)		//# Not use Battery Safe Time Off - for ATVS
 //#define USE_HTRV
 //#################################//
 
@@ -62,13 +61,7 @@
 	
 #else
 
-	#if ATVS_MODE
-	#define TCX_MODEL			"ATVS"
-	#define CFG_MODEL			"d16"		//it use same viewer with d16.
-	#define TCX_SW_VER  		"3.08.04"	//for ATVS
-	
-	#else
-	//# D16	
+ 	//# D16	
 	#define TCX_MODEL			"D16"
 	#define CFG_MODEL			"d16"
 	#define TCX_SW_VER  		"3.07.00"	
@@ -76,7 +69,6 @@
 		#if DETECT_EMG_GIO
 			#define TCX_SW_VER		"3.07.00E"
 		#endif
-	#endif
 	
 #endif
 //#################################//

@@ -59,11 +59,7 @@ static int MIN_VOLT_IDX[VOLT_LEVEL_MAX][VOLT_IDX_MAX] = {						//# Low voltage 1
 static int HIGH_TEMP_IDX[TEMP_IDX_MAX]		= {80, 85, 90, 95, 100};					//# temparature
 static int AUTOPRK_TIME[AUTOPARK_MAX]		= {0, 10, 15, 20}; 					//# auto change to parking mode
 
-#if ATVS_MODE
-	static int BAT_SAFE_TIME[BAT_SAFE_MAX]		= {2, 6, 12, 24, 36, 48}; 	        //# shutdown time on parking mode for ATVS
-#else
-	static int BAT_SAFE_TIME[BAT_SAFE_MAX]		= {0, 6, 12, 24, 36, 48}; 	        //# shutdown time on parking mode
-#endif
+static int BAT_SAFE_TIME[BAT_SAFE_MAX]		= {0, 6, 12, 24, 36, 48}; 	        //# shutdown time on parking mode
 
 static int SD_FORMAT_PERIOD[SD_FORMAT_MAX]	= {0, 2, 4, 8};						//# format time
 static int FPS_IDX[FPS_MAX]					= {30, 25, 20, 15, 10};
@@ -739,11 +735,7 @@ void ubx_set_default(void)
 
     ubx_delete_cfg();
 
-#if ATVS_MODE
-	memcpy((void *)app_set, &app_default_set_ATVS, sizeof(app_set_t));
-#else
-	memcpy((void *)app_set, &app_default_set, sizeof(app_set_t));
-#endif
+ 	memcpy((void *)app_set, &app_default_set, sizeof(app_set_t));
 
 	set_format_dur();
 	app_set_cfg_params();
@@ -791,11 +783,7 @@ static int cfg_mmc_check()
 		}
 	}
 	
-#if ATVS_MODE
-	cfg_param_check_ATVS(app_set);
-#else
-    cfg_param_check(app_set);
-#endif
+     cfg_param_check(app_set);
 
     return SOK;
 }

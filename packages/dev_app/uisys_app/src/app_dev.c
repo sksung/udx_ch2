@@ -564,21 +564,11 @@ static void *gsensor_main(void *prm)
 							if(impact > threshold)
 							{
 								dprintf("G_Sensor event(%f/%f)===\n", impact, threshold);
-								app_cfg->state.shock  = 1;
-								if(ATVS_MODE) {
-									if(app_cfg->state.park){
-										app_evt_record(REC_PARKING);
-									}
-								}
-								else {
-									#ifndef USE_HTRV
-									if(app_cfg->state.park){
-										app_evt_record(REC_PARKING);
-									}
-									else
-								    #endif
-										app_evt_record(REC_EVENT);
-								}
+								app_cfg->state.shock  = 1;									
+
+								if(app_cfg->state.park){
+									app_evt_record(REC_PARKING);
+								}								
 
 #if 1
 								printf("\n***********************************************\n");
