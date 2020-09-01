@@ -555,34 +555,7 @@ static void *gsensor_main(void *prm)
                         impact = level.y;
                     if(level.z > impact)
                         impact = level.z;
-
-					if( app_set->wd.gsn < GSN_IDX_OFF ){
-						if( DETECT_EMG_GIO == 0)
-						{
-							//#--- accident!!
-							threshold = SENSITIVITY_TABLE[app_cfg->state.park][app_set->wd.gsn] * LSG;
-							if(impact > threshold)
-							{
-								dprintf("G_Sensor event(%f/%f)===\n", impact, threshold);
-								app_cfg->state.shock  = 1;									
-
-								if(app_cfg->state.park){
-									app_evt_record(REC_PARKING);
-								}								
-
-#if 1
-								printf("\n***********************************************\n");
-								printf("Prev Data x[%03d] y[%03d] z[%03d]\n",acc.x, acc.y, acc.z);
-								printf("Cur  Data x[%03d] y[%03d] z[%03d]\n",acc_obj.x, acc_obj.y, acc_obj.z);
-								printf("LevelData x[%03d] y[%03d] z[%03d]\n",level.x ,level.y, level.z);
-	
-								printf("impact detect: Impact = %03f, Threshold = %03f\n", impact, threshold);
-								printf("park[%d] gsensor_lvl[%d]===\n",app_cfg->state.park,app_set->wd.gsn);
-								printf("***********************************************\n\n");
-#endif
-							}
-						}
-					}
+  
                     if(app_cfg->state.mmc && app_cfg->state.rec)
                         gs_meta_add(&level);
 

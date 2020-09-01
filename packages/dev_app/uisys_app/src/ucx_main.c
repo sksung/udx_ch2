@@ -117,27 +117,11 @@ int vsys_event(unsigned int eventId, void *pPrm, void *appData)
 			app_cfg->state.cam_buzzer = 1;
         }
 
-
-
 		app_change_file();
 
 		sprintf( msg, " Camera Detected Count: %d", app_cfg->num_ch );
 		app_log_write( MSG_LOG_WRITE, msg );
 	}
-
-#ifndef USE_HTRV
-	if (eventId==VSYS_EVENT_MOTION_DETECT)
-	{
-//		printf(" [i] CH%d: detected motion\n", *(int *)pPrm);
-        app_cfg->state.motion = 1;
-		if(app_set->sys.motion_only == OFF)
-			app_evt_record(REC_PARKING);
-		else
-			app_evt_record(REC_DRIVE);
-		
-		event_send(app_cfg->uObj, UBX_GUI_MOTION, 0, 0);
-	}
-#endif
 
 	return 0;
 }

@@ -44,20 +44,8 @@
  -----------------------------------------------------------------------------*/
 //#define USE_FTS_UTIL
 
-#ifdef USE_HTRV
-	#define DRIVE_DIR_PER     	    (85)
-	#define EVENT_DIR_PER           (10)
-#else
-	#if DETECT_EMG_GIO
-		#define DRIVE_DIR_PER     	    (50)
-		#define EVENT_DIR_PER           (45)
-		#define PARKING_DIR_PER			(1)	
-	#else
-		#define DRIVE_DIR_PER     	    (50)
-		#define EVENT_DIR_PER           (20)
-		#define PARKING_DIR_PER			(25)
-	#endif
-#endif
+#define DRIVE_DIR_PER     	    (90)
+#define EVENT_DIR_PER           (5)
 
 #define FILE_LIST_CYCLE         (100)
 #define FILE_LIST_CHECK_TIME    (60*1000)   //1min
@@ -101,11 +89,7 @@ app_file_list_t ilist[REC_MAX];
 app_file_t t_file;
 app_file_t* ifile;
 
-#ifndef USE_HTRV
-static char* rec_type_path[REC_MAX]={DIR_REC_DRIVE, DIR_REC_EVENT, DIR_REC_PARKING};
-#else
 static char* rec_type_path[REC_MAX]={DIR_REC_DRIVE, DIR_REC_EVENT};
-#endif
 
 /*----------------------------------------------------------------------------
 Declares a function prototype
@@ -149,23 +133,16 @@ static int get_threshold_size(app_file_t* pInfo)
 
 	if( app_cfg->state.mmc_err )
 		return EFAIL;
+		
 
-#if 1
-	printf("\n");
-	printf("=======================================================================\n");
-	printf("					  GET DISK SIZE INFORMATION 		 \n");
-	printf("=======================================================================\n");
-	printf("   TOT-SIZE 		 NOR-SZIE		  EVT-SIZE		   PARK-SIZE	   \n");
-	printf("=======================================================================\n");
-#endif
-#ifdef USE_HTRV
     printf("\n");
 	printf("==============================================================\n");
 	printf("			    GET DISK SIZE INFORMATION 		         \n");
 	printf("==============================================================\n");
 	printf("   TOT-SIZE 		 NOR-SZIE		  EVT-SIZE           \n");
 	printf("==============================================================\n");
-#endif
+	
+
 
 	disk_info_t idisk;
 	ret = util_disk_info(&idisk, DIR_DISK);
@@ -174,38 +151,18 @@ static int get_threshold_size(app_file_t* pInfo)
 	{
 		//#--- Save threshold size
 		pInfo->size_max[REC_DRIVE]		= ((unsigned long long)idisk.total*DRIVE_DIR_PER)/100;
-		pInfo->size_max[REC_EVENT] 		= ((unsigned long long)idisk.total*EVENT_DIR_PER)/100;
-
-		//# NOT USED EVENT ONLY
-		if(DETECT_EMG_GIO == 0)
-		{
-        	#ifndef USE_HTRV
-			pInfo->size_max[REC_PARKING] 	= ((unsigned long long)idisk.total*PARKING_DIR_PER)/100;
-	        #endif
-		}
+		pInfo->size_max[REC_EVENT] 		= ((unsigned long long)idisk.total*EVENT_DIR_PER)/100;  
 		
 		pInfo->disk_avail				= idisk.avail;
 		ret = SOK;
 	}
 
-#ifdef USE_HTRV
     printf("     %ldGb			 %ldGB		       %ldGB\n",
 		   (idisk.total/1024)/1024,
 		   (pInfo->size_max[REC_DRIVE]/1024)/1024,
 		   (pInfo->size_max[REC_EVENT]/1024)/1024);
 	printf("===============================================================\n");
-	printf("\n");
-#endif
-
-#if 0
-	printf("   %ld			 %ld		  %ld		   %ld		 \n",
-		   idisk.total,
-		   pInfo->size_max[REC_DRIVE],
-		   pInfo->size_max[REC_EVENT],
-		   pInfo->size_max[REC_PARKING]);
-	printf("=====================================================================\n");
-	printf("\n");
-#endif
+	printf("\n");	
 
 	return ret;
 
@@ -343,14 +300,7 @@ static void* file_check_main(void* prm)
 						file_delete(REC_DRIVE, 0); 					   
 				
 					if(ifile->size_max[REC_EVENT] <= ilist[REC_EVENT].tot_size)
-						file_delete(REC_EVENT, 0);
-					if( DETECT_EMG_GIO == 0 )
-					{
-						#ifndef USE_HTRV
-						if(ifile->size_max[REC_PARKING] <= ilist[REC_PARKING].tot_size)
-							file_delete(REC_PARKING, 0);
-						#endif
-					}
+						file_delete(REC_EVENT, 0);  
 				}
 #if 0				
 				else
@@ -482,103 +432,47 @@ int app_file_get_list(int rec_type, file_info_t** flist, int descending)
 {
 	int fcnt = 0;
 	app_file_list_t* plist;
+	plist = &ilist[rec_type];
 
-#ifndef USE_HTRV
-	if(rec_type == REC_PARKING)
+	if(plist->head != NULL && plist->file_cnt > 0)
 	{
-		int i;
+		printf("file count: %d\n", plist->file_cnt);
+		*flist = (file_info_t*)app_malloc(sizeof(file_info_t)*plist->file_cnt);
 
-		if(ilist[REC_PARKING].head != NULL && ilist[REC_PARKING].file_cnt > 0)
-			fcnt = ilist[REC_PARKING].file_cnt;
-
-		if(fcnt)
+		if(descending)	//latest file first
 		{
-			*flist = (file_info_t*)app_malloc(sizeof(file_info_t)*fcnt);
-
-			fcnt = 0;
-            i = REC_PARKING;
-			plist = &ilist[i];
-			if(plist->head != NULL && plist->file_cnt > 0)
+			app_file_entry_t* pTmp = plist->tail;
+			while(pTmp->prev != NULL)
 			{
-				if(descending)	//latest file first
-				{
-					app_file_entry_t* pTmp = plist->tail;
-					while(pTmp->prev != NULL)
-					{
-						(*flist)[fcnt].size = pTmp->file_info.size;
-						sprintf((*flist)[fcnt].fname,"%s", pTmp->file_info.fname);
-
-						fcnt++;
-						pTmp = pTmp->prev;
-					}
-
-					(*flist)[fcnt].size = pTmp->file_info.size;
-					sprintf((*flist)[fcnt].fname,"%s", pTmp->file_info.fname);
-					fcnt++;
-				}
-				else
-				{
-					app_file_entry_t* pTmp = plist->head;
-					while(pTmp->next != NULL)
-					{
-						(*flist)[fcnt].size = pTmp->file_info.size;
-						sprintf((*flist)[fcnt].fname,"%s", pTmp->file_info.fname);
-
-						fcnt++;
-						pTmp = pTmp->next;
-					}
-
-					(*flist)[fcnt].size = pTmp->file_info.size;
-					sprintf((*flist)[fcnt].fname,"%s", pTmp->file_info.fname);
-					fcnt++;
-				}
-			}
-	    }
-	}
-	else
-#endif
-	{
-		plist = &ilist[rec_type];
-
-		if(plist->head != NULL && plist->file_cnt > 0)
-		{
-			printf("file count: %d\n", plist->file_cnt);
-			*flist = (file_info_t*)app_malloc(sizeof(file_info_t)*plist->file_cnt);
-
-			if(descending)	//latest file first
-			{
-				app_file_entry_t* pTmp = plist->tail;
-				while(pTmp->prev != NULL)
-				{
-					(*flist)[fcnt].size = pTmp->file_info.size;
-					sprintf((*flist)[fcnt].fname,"%s", pTmp->file_info.fname);
-
-					fcnt++;
-					pTmp = pTmp->prev;
-				}
-
 				(*flist)[fcnt].size = pTmp->file_info.size;
 				sprintf((*flist)[fcnt].fname,"%s", pTmp->file_info.fname);
-				fcnt++;
-			}
-			else
-			{
-				app_file_entry_t* pTmp = plist->head;
-				while(pTmp->next != NULL)
-				{
-					(*flist)[fcnt].size = pTmp->file_info.size;
-					sprintf((*flist)[fcnt].fname,"%s", pTmp->file_info.fname);
 
-					fcnt++;
-					pTmp = pTmp->next;
-				}
-
-				(*flist)[fcnt].size = pTmp->file_info.size;
-				sprintf((*flist)[fcnt].fname,"%s", pTmp->file_info.fname);
 				fcnt++;
+				pTmp = pTmp->prev;
 			}
+
+			(*flist)[fcnt].size = pTmp->file_info.size;
+			sprintf((*flist)[fcnt].fname,"%s", pTmp->file_info.fname);
+			fcnt++;
 		}
-	}
+		else
+		{
+			app_file_entry_t* pTmp = plist->head;
+			while(pTmp->next != NULL)
+			{
+				(*flist)[fcnt].size = pTmp->file_info.size;
+				sprintf((*flist)[fcnt].fname,"%s", pTmp->file_info.fname);
+
+				fcnt++;
+				pTmp = pTmp->next;
+			}
+
+			(*flist)[fcnt].size = pTmp->file_info.size;
+			sprintf((*flist)[fcnt].fname,"%s", pTmp->file_info.fname);
+			fcnt++;
+		}
+	}	
+
 
 	return fcnt;
 }
@@ -656,15 +550,7 @@ int app_file_start(void)
 			app_cfg->wd_flags = WD_FSCAN;
 			file_delete(REC_EVENT, ilist[REC_EVENT].tot_size);
             del = 1;
-        }
-
-        #ifndef USE_HTRV
-		if(ifile->size_max[REC_PARKING] <= ilist[REC_PARKING].tot_size){
-			app_cfg->wd_flags = WD_FSCAN;
-			file_delete(REC_PARKING, ilist[REC_PARKING].tot_size);
-            del = 1;
-        }
-        #endif       
+        }		
 
         if(del){
             disk_info_t idisk;

@@ -326,49 +326,18 @@ static int dev_check_acc(int acc)
 					sprintf(msg, "[APP_MICOM] ACC Off Detected!!");
 					app_log_write(MSG_LOG_WRITE, msg);
 
-					if( DETECT_EMG_GIO != 0)
-					{
-						//# Not Use Parking mode on HTRV....System Shutdown!!
-						system_buzzer(SYSTEM_OPER);
-						app_log_write(MSG_LOG_SHUTDOWN, " >>>> ACC Off Detected!! System Shutdown!! <<<<");
+				 	//# Not Use Parking mode on HTRV....System Shutdown!!
+					system_buzzer(SYSTEM_OPER);
+					app_log_write(MSG_LOG_SHUTDOWN, " >>>> ACC Off Detected!! System Shutdown!! <<<<");
 
-						app_rec_stop();
-						app_file_stop();
-					 	ubx_change_setting();
-	                    event_send(app_cfg->uObj, UBX_GUI_LOGO, 0, 0);
+					app_rec_stop();
+					app_file_stop();
+				 	ubx_change_setting();
+                    event_send(app_cfg->uObj, UBX_GUI_LOGO, 0, 0);
 
-						OSA_waitMsecs(300);
-						mic_exit_state(OFF_NORMAL, 0);
-						app_micom_exit();					
-					}
-					else
-					{
-						#ifdef USE_HTRV
-						
-						//# Not Use Parking mode on HTRV....System Shutdown!!
-						system_buzzer(SYSTEM_OPER);
-						app_log_write(MSG_LOG_SHUTDOWN, " >>>> ACC Off Detected!! System Shutdown!! <<<<");
-					
-						app_rec_stop();
-						app_file_stop();
-						ubx_change_setting();
-						event_send(app_cfg->uObj, UBX_GUI_LOGO, 0, 0);
-					
-						OSA_waitMsecs(300);
-						mic_exit_state(OFF_NORMAL, 0);
-						app_micom_exit();
-						
-						#else
-					
-						//# Start Parking mode
-						app_cfg->state.acc = 1;
-						ctrl_mode_change(MODE_PARKING);
-						app_cfg->state.acc = 0;
-						if(app_cfg->state.popup)
-							app_cfg->state.popup = 0;
-						
-						#endif
-					}
+					OSA_waitMsecs(300);
+					mic_exit_state(OFF_NORMAL, 0);
+					app_micom_exit(); 
 				}
 			}
 		}

@@ -36,10 +36,7 @@
 typedef enum {
 	REC_DRIVE=0,
 	REC_EVENT,
-	#ifndef USE_HTRV
-	REC_PARKING,	
-	#endif
-	REC_MAX
+ 	REC_MAX
 }rec_type_e;
 
 typedef struct {

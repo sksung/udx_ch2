@@ -107,11 +107,7 @@ void ui_draw_logo(int dest)
 
 	if(dest == DISP_TVO)
 	{
-	    #ifdef USE_HTRV
-        iimg = get_img_db(IMG_HTRV_LOGO);
-        #else
-		iimg = get_img_db(IMG_UDLOGO_TV);
-        #endif
+ 		iimg = get_img_db(IMG_UDLOGO_TV); 
 		st.x=0; st.y=0; st.w=iimg->w; st.h=iimg->h;
 		draw_img(gfx->tvo.buf, (Upix *)iimg->p, st);
 	}

@@ -129,13 +129,7 @@ static void check_rec_dir()
 		mkdir(DIR_REC_EVENT, 0775);
 		chmod(DIR_REC_EVENT, 0775);
 	}
-    #ifndef USE_HTRV
-	if(-1 == access(DIR_REC_PARKING, 0)) {
-		mkdir(DIR_REC_PARKING, 0775);
-		chmod(DIR_REC_PARKING, 0775);
-	}
-    #endif
-}
+ }
 
 /*----------------------------------------------------------------------------
  function for frame index
@@ -497,14 +491,9 @@ static void *nor_rec_main(void *prm)
 	char msg[CHAR_128];
 
 	printf(" [task] %s start\n", __func__);
-	tObj->done = 0;
+	tObj->done = 0;		
 
-    #ifndef USE_HTRV
-	if(app_cfg->state.park)
-		rec_type = REC_PARKING;
-	else
-    #endif
-		rec_type = REC_DRIVE;
+	rec_type = REC_DRIVE;
 
 	while(!exit)
 	{
@@ -577,25 +566,15 @@ static int evt_file_open(stream_info_t *ifr)
 
 	strftime(buf, sizeof(buf), "%Y%2m%2d_%2H%2M%2S", &ts);
 
-	
-#ifdef USE_HTRV
-	sprintf(irec->evt_fname, "E_%s_%dch.avi", buf, app_cfg->num_ch);
-	sprintf(full_path, "%s/%s", DIR_REC_EVENT, irec->evt_fname);
-#else
-	if(irec->evt_type == REC_DRIVE){	//for motion only mode
+ 	if(irec->evt_type == REC_DRIVE){	//for motion only mode
 		sprintf(irec->evt_fname, "D_%s_%dch.avi", buf, app_cfg->num_ch);
 		sprintf(full_path, "%s/%s", DIR_REC_DRIVE, irec->evt_fname);
-	}
-	else if(irec->evt_type == REC_PARKING){
-        sprintf(irec->evt_fname, "P_%s_%dch.avi", buf, app_cfg->num_ch);
-		sprintf(full_path, "%s/%s", DIR_REC_PARKING, irec->evt_fname);
-    }
+	}	
 	else
     {
 		sprintf(irec->evt_fname, "E_%s_%dch.avi", buf, app_cfg->num_ch);
 		sprintf(full_path, "%s/%s", DIR_REC_EVENT, irec->evt_fname);
-	}
-#endif
+	}	
 
 	dprintf("new filename %s\n", full_path);
 
@@ -831,7 +810,7 @@ int app_rec_start(void)// *g_mem_info)
 	irec->chg_file 	= 0;
 
 	irec->evt_rec 	= 0;
-	irec->evt_btime = TIME_PRE_REC;
+	irec->evt_btime = 0;
 	
 #if DETECT_EMG_GIO
 	irec->evt_atime = TIME_PRE_REC_10MIN;

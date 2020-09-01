@@ -1480,11 +1480,6 @@ void avistreamreq(int channel, char *data, int len)
 		case REC_EVENT:
             sprintf(file_path, "%s/%s", DIR_REC_EVENT, Avistreamreq->filename);
             break;
-        #ifndef USE_HTRV    
-        case REC_PARKING:
-            sprintf(file_path, "%s/%s", DIR_REC_PARKING, Avistreamreq->filename);
-            break;
-        #endif
         default:
             sprintf(file_path, "%s/%s", DIR_REC_DRIVE, Avistreamreq->filename);
             break;

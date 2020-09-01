@@ -79,13 +79,8 @@ app_set_t app_default_set = {
 		.sub_mirror   	= MIRROR_OFF,		//# REAR CAM MIRROR
 	},
 	.aud = {
-	#ifdef USE_HTRV
-        .mic_on    = ON,			//# MIC
-    #else
-		.mic_on    = OFF,			//# MIC
-    #endif
-	
-		.snd_on    = ON,			//# SOUND ON LIVE	
+ 		.mic_on    = OFF,			//# MIC		
+ 		.snd_on    = ON,			//# SOUND ON LIVE	
 	},
 	//# drive_ch 0
 	.ch[0] = {
@@ -119,35 +114,21 @@ app_set_t app_default_set = {
 		.rate_ctrl = RATE_CTRL_VBR, //# rate_ctl
 		.motion    = 0,
 	},
-	.fdur = {
-	#ifdef USE_HTRV
-        .weeks = SD_FORMAT_OFF,	//# sd format period
-    #else
-		.weeks = SD_FORMAT_4W,	//# sd format period
-	#endif
-	
+	.fdur = {		
+        .weeks = SD_FORMAT_OFF,	//# sd format period		
 		.start = OFF,			//# sd format period start time	
 	},
-	.wd = {
-	#ifdef USE_HTRV
+	.wd = {		
         .bat_safe  = BAT_SAFE_OFF,	//# shutdown time on parking mode
 		.temp      = TEMP_IDX_3,		//# temparature
 		.volt      = VOLT_IDX_8,		//# minimum voltage
 		.auto_park = AUTOPARK_OFF,	//# auto parking time
 		.motion    = MOTION_IDX_OFF,	//# motion sensitivity
 		.gsn       = GSN_IDX_OFF,		//# g-sensor sensitivity
-    #else
-		.bat_safe  = BAT_SAFE_12,	//# shutdown time on parking mode
-		.temp      = TEMP_IDX_3,		//# temparature
-		.volt      = VOLT_IDX_4,		//# minimum voltage
-		.auto_park = AUTOPARK_OFF,	//# auto parking time
-		.motion    = MOTION_IDX_01,	//# motion sensitivity
-		.gsn       = GSN_IDX_03,		//# g-sensor sensitivity
-	#endif
-	},
+ 	},
 	.net = {
 		.use_wifi = ON,			//# use wifi
-		.ssid     = "UCX-AP",
+		.ssid     = "UI-HICAM",
 		.pwd      = "1234567890",
 		.ip       = "192.168.0.1",
 	},
@@ -342,13 +323,8 @@ int get_auto_prk_val(app_aprk_e idx)
 
 int get_bat_safe_val(app_bat_safe_e idx)
 {
-    #ifdef USE_HTRV
     if(idx < BAT_SAFE_OFF)
         idx = BAT_SAFE_OFF;
-    #else
-    if(idx < BAT_SAFE_OFF)
-        idx = BAT_SAFE_12;
-    #endif
 
     if(idx >= BAT_SAFE_MAX)
         idx = BAT_SAFE_MAX-1;
@@ -358,13 +334,8 @@ int get_bat_safe_val(app_bat_safe_e idx)
 
 unsigned long long get_sd_format_val(app_sformat_e idx)
 {
-    #ifdef USE_HTRV
     if(idx < SD_FORMAT_OFF)
         idx = SD_FORMAT_OFF;
-    #else
-    if(idx < SD_FORMAT_OFF)
-        idx = SD_FORMAT_4W;
-    #endif
 
     if(idx >= SD_FORMAT_MAX)
         idx = SD_FORMAT_MAX-1;
@@ -403,13 +374,8 @@ int get_fps_val(app_frate_e idx)
 
 int get_low_volt_val(app_secu_mode_e mode, app_volt_idx_e idx)
 {
-    #ifdef USE_HTRV
     if(idx < VOLT_IDX_1)
         idx = VOLT_IDX_8;
-    #else
-    if(idx < VOLT_IDX_1)
-        idx = VOLT_IDX_4;
-    #endif
 
     if(idx >= VOLT_IDX_MAX)
         idx = VOLT_IDX_MAX-1;
@@ -469,13 +435,7 @@ static void cfg_param_check(app_set_t* pset)
 	if(pset->lcd.sub_mirror >= MIRROR_MAX || pset->lcd.sub_mirror < MIRROR_VH)
 		pset->lcd.sub_mirror = MIRROR_OFF;
 
-#ifdef USE_HTRV
-    if(pset->aud.mic_on != ON && pset->aud.mic_on != OFF)
-		pset->aud.mic_on = ON;
-#else
-	if(pset->aud.mic_on != ON && pset->aud.mic_on != OFF)
-		pset->aud.mic_on = OFF;
-#endif
+	pset->aud.mic_on = OFF;
 
 	if(pset->aud.snd_on != ON && pset->aud.snd_on != OFF)
 		pset->aud.snd_on = ON;
@@ -508,13 +468,9 @@ static void cfg_param_check(app_set_t* pset)
 			pset->ch_prk[i].motion = OFF;
 	}
 
-#ifdef USE_HTRV
+
     if(pset->fdur.weeks >= SD_FORMAT_MAX || pset->fdur.weeks < SD_FORMAT_OFF)
 		pset->fdur.weeks = SD_FORMAT_OFF;
-#else
-	if(pset->fdur.weeks >= SD_FORMAT_MAX || pset->fdur.weeks < SD_FORMAT_OFF)
-		pset->fdur.weeks = SD_FORMAT_4W;
-#endif
 
 	if(pset->fdur.start == CFG_INVALID)
 		set_format_dur();	
@@ -525,7 +481,6 @@ static void cfg_param_check(app_set_t* pset)
     if(pset->wd.auto_park >= AUTOPARK_MAX || pset->wd.auto_park < AUTOPARK_OFF)
         pset->wd.auto_park = AUTOPARK_OFF;
 
-#ifdef USE_HTRV
     if(pset->wd.bat_safe >= BAT_SAFE_MAX || pset->wd.bat_safe < BAT_SAFE_OFF)
 		pset->wd.bat_safe = BAT_SAFE_OFF;
 
@@ -538,20 +493,6 @@ static void cfg_param_check(app_set_t* pset)
 	if(pset->wd.gsn >= GSN_IDX_MAX|| pset->wd.gsn < GSN_IDX_01)
 		pset->wd.gsn = GSN_IDX_OFF;
     
-#else
-	if(pset->wd.bat_safe >= BAT_SAFE_MAX || pset->wd.bat_safe < BAT_SAFE_OFF)
-		pset->wd.bat_safe = BAT_SAFE_12;
-
-	if(pset->wd.volt >= VOLT_IDX_MAX|| pset->wd.volt < VOLT_IDX_1)
-		pset->wd.volt = VOLT_IDX_4;
-
-	if(pset->wd.motion >= MOTION_IDX_MAX|| pset->wd.motion < MOTION_IDX_OFF)
-		pset->wd.motion = MOTION_IDX_01;
-
-	if(pset->wd.gsn >= GSN_IDX_MAX|| pset->wd.gsn < GSN_IDX_01)
-		pset->wd.gsn = GSN_IDX_03;
-#endif
-
 	if(pset->net.use_wifi != ON && pset->net.use_wifi != OFF)
 		pset->net.use_wifi = ON;
 
@@ -599,9 +540,7 @@ static void cfg_param_check(app_set_t* pset)
 		pset->sys.motion_only = OFF;
 	}
 
-#ifdef USE_HTRV
 	pset->sys.motion_only = OFF;
-#endif
 
 }
 

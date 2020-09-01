@@ -44,34 +44,13 @@
 //#define DEBUG_AUTO_REBOOT
 
 //# gpio event로10분 이벤트 녹화만 사용함//
-#define DETECT_EMG_GIO	(0)
+#define DETECT_EMG_GIO	(1)
 
-//######### VENDOR SETTING ########//
-//#define USE_HTRV
-//#################################//
-
-
-
-//######### VERSIONING ########//
-#ifdef USE_HTRV
-
-	#define TCX_MODEL			"HTRV"
-	#define CFG_MODEL			"htrv"
-	#define TCX_SW_VER      	"3.05.02"
-	
-#else
-
- 	//# D16	
-	#define TCX_MODEL			"D16"
-	#define CFG_MODEL			"d16"
-	#define TCX_SW_VER  		"3.07.00"	
-	
-		#if DETECT_EMG_GIO
-			#define TCX_SW_VER		"3.07.00E"
-		#endif
-	
-#endif
-//#################################//
+//######### VERSIONING ########// 
+	#define TCX_MODEL		"UI-HICAM"
+	#define CFG_MODEL		"d16"
+ 	#define TCX_SW_VER		"3.07.00E"
+ //#################################//
 
 
 //#---------------------
