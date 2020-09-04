@@ -328,7 +328,7 @@ static void ipc_bits_process(void)
 #endif
 	}
 
-	if(app_cfg->state.rec && !app_cfg->state.mmc_sz /*&& !app_cfg->state.park*/)
+	if(app_cfg->state.rec && !app_cfg->state.mmc_sz && app_cfg->state.evt /*&& !app_cfg->state.park*/)
 		app_rec_notify();
 
 	Venc_releaseBitstreamBuffer(&fullBufList);

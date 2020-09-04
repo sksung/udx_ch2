@@ -44,7 +44,7 @@
  -----------------------------------------------------------------------------*/
 //#define USE_FTS_UTIL
 
-#define DRIVE_DIR_PER     	    (90)
+#define DRIVE_DIR_PER     	    (95)
 #define EVENT_DIR_PER           (5)
 
 #define FILE_LIST_CYCLE         (100)
@@ -151,16 +151,16 @@ static int get_threshold_size(app_file_t* pInfo)
 	{
 		//#--- Save threshold size
 		pInfo->size_max[REC_DRIVE]		= ((unsigned long long)idisk.total*DRIVE_DIR_PER)/100;
-		pInfo->size_max[REC_EVENT] 		= ((unsigned long long)idisk.total*EVENT_DIR_PER)/100;  
+//		pInfo->size_max[REC_EVENT] 		= ((unsigned long long)idisk.total*EVENT_DIR_PER)/100;  
 		
 		pInfo->disk_avail				= idisk.avail;
 		ret = SOK;
 	}
 
-    printf("     %ldGb			 %ldGB		       %ldGB\n",
+    printf("     %ldGb			 %ldGB\n",
 		   (idisk.total/1024)/1024,
-		   (pInfo->size_max[REC_DRIVE]/1024)/1024,
-		   (pInfo->size_max[REC_EVENT]/1024)/1024);
+		   (pInfo->size_max[REC_DRIVE]/1024)/1024);
+//		   (pInfo->size_max[REC_EVENT]/1024)/1024);
 	printf("===============================================================\n");
 	printf("\n");	
 
@@ -299,8 +299,8 @@ static void* file_check_main(void* prm)
 					if(ifile->size_max[REC_DRIVE] <= ilist[REC_DRIVE].tot_size)
 						file_delete(REC_DRIVE, 0); 					   
 				
-					if(ifile->size_max[REC_EVENT] <= ilist[REC_EVENT].tot_size)
-						file_delete(REC_EVENT, 0);  
+//					if(ifile->size_max[REC_EVENT] <= ilist[REC_EVENT].tot_size)
+//						file_delete(REC_EVENT, 0);  
 				}
 #if 0				
 				else
@@ -545,13 +545,13 @@ int app_file_start(void)
 			file_delete(REC_DRIVE, ilist[REC_DRIVE].tot_size);
             del = 1;
         }
-
+/*
 		if(ifile->size_max[REC_EVENT] <= ilist[REC_EVENT].tot_size){
 			app_cfg->wd_flags = WD_FSCAN;
 			file_delete(REC_EVENT, ilist[REC_EVENT].tot_size);
             del = 1;
         }		
-
+*/
         if(del){
             disk_info_t idisk;
         	ste = util_disk_info(&idisk, DIR_DISK);

@@ -1474,7 +1474,8 @@ void avistreamreq(int channel, char *data, int len)
     COMRESPACKET Avistreamerror ;
 
     Avistreamreq = (AVISTREAMREQ *)data ;
-
+	sprintf(file_path, "%s/%s", DIR_REC_DRIVE, Avistreamreq->filename);
+/*
     switch(ntohs(Avistreamreq->rectype))
     {
 		case REC_EVENT:
@@ -1484,7 +1485,7 @@ void avistreamreq(int channel, char *data, int len)
             sprintf(file_path, "%s/%s", DIR_REC_DRIVE, Avistreamreq->filename);
             break;
     }
-
+*/
     gettimeofday(&tv, NULL) ;
     Pretime = (unsigned long)(tv.tv_sec % 10000u) ;
 

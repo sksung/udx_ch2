@@ -29,7 +29,7 @@
  -----------------------------------------------------------------------------*/
 #define DIR_DISK	        "/mmc"
 #define DIR_REC				"/mmc/data"
-#define DIR_REC_DRIVE		"/mmc/data/drive"
+#define DIR_REC_DRIVE		"/mmc/data/Recording"
 #define DIR_REC_EVENT		"/mmc/data/event"
 #define DIR_REC_PARKING		"/mmc/data/parking"
 

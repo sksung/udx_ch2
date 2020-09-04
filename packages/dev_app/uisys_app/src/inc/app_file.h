@@ -35,7 +35,7 @@
  -----------------------------------------------------------------------------*/
 typedef enum {
 	REC_DRIVE=0,
-	REC_EVENT,
+//	REC_EVENT,
  	REC_MAX
 }rec_type_e;
 

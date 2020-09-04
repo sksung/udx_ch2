@@ -797,7 +797,13 @@ static void *timer_main(void *prm)
 			val = 0;
 			res = gpio_get_value(EMG_DET_GIO, &val);
 //			printf("emg_gpio: %02d, res: %02d ====\n", val, res);
-			if(!val) app_evt_record(REC_EVENT);
+			if(!val) {
+				app_rec_start();
+				app_cfg->state.evt 	= 1;
+			} else {
+				app_cfg->state.evt 	= 0;
+				app_rec_stop();
+			}
 		}
 #endif
 

@@ -19,6 +19,7 @@ function print_fw_num()
  echo " 6 - DTC Train"
  echo " 7 - CWX 2ch"
  echo " 8 - PLUTO 2ch"
+ echo " 9 - UISYS"
  echo " 0 - exit"
  echo -------------------
  echo
@@ -34,7 +35,8 @@ function make_app_name()
     "5"  ) app_name="DD";;
     "6"  ) app_name="DT";;
     "7"  ) app_name="CW";;
-    "8"  ) app_name="PB";;    
+    "8"  ) app_name="PB";;
+    "9"  ) app_name="UISYS";;
   esac
 }
 
@@ -79,10 +81,10 @@ do
 
  print_fw_num
  
- echo -n "Select Number(0~7): "
+ echo -n "Select Number(0~9): "
  read fw_num
 
- if [ "$fw_num" -ge "1"  ] && [ "$fw_num" -le "7"  ]
+ if [ "$fw_num" -ge "1"  ] && [ "$fw_num" -le "9"  ]
  then
    make_app_name "$fw_num"
 
