@@ -47,10 +47,10 @@
 #define DETECT_EMG_GIO	(1)
 
 //######### VERSIONING ########// 
-	#define TCX_MODEL		"UI-HICAM"
-	#define CFG_MODEL		"d16"
- 	#define TCX_SW_VER		"3.07.00E"
- //#################################//
+#define TCX_MODEL		"UI-HICAM"
+#define CFG_MODEL		"d16"
+#define TCX_SW_VER		"1.00.00"
+//#################################//
 
 
 //#---------------------
